@@ -8,8 +8,8 @@ spec:
     - name: activaprefapp-sample-s3
       type: aws-s3
       properties:
-        bucket: activaprefapp-bucket-test-48754
+        bucket: activaprefapp-bucket-test-48754   #required
         writeConnectionSecretToRef:
-          name: s3-conn
+          name: s3-conn   #required
         providerRef:
-          name: aws #if not specified the default value is 'aws'
+          name: aws   #if not specified the default value is 'aws'
