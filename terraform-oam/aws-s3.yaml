@@ -1,0 +1,15 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: provision-s3-resource-sample
+  namespace: default
+spec:
+  components:
+    - name: activaprefapp-sample-s3
+      type: aws-s3
+      properties:
+        bucket: activaprefapp-bucket-test-48754
+        writeConnectionSecretToRef:
+          name: s3-conn
+        providerRef:
+          name: aws #if not specified the default value is 'aws'
