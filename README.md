@@ -129,4 +129,15 @@ APP                             COMPONENT                      TYPE    TRAITS  P
 provision-s3-resource-sample    activaprefapp-sample-s3        aws-s3          running healthCloud resources are deployed and ready to use  2023-08-08 11:26:56 +0200 CEST
 ```
 
-After the phase becomes and , you can then check the OSS bucket in Alibaba Cloud console ``runnin`` ``ghealthy``
+After the phase becomes and , you can then check the OSS bucket in Alibaba Cloud console ``running`` ``healthy``
+
+## List OAM applications defined
+
+These are the OAM applications defined in this repository for the demonstration of KubeVela's Terraform addon to AWS
+
+- OAM application for S3 provisioning
+- OAM application for RDS provisioning
+
+Some of these applications have been completed with more documentation.
+
+- [AWS-RDS module docs](./docs-module/aws-rds.md)
