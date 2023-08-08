@@ -61,14 +61,13 @@ You can configure and authenticate multiple providers. Note that you must later 
 
 All supported Terraform cloud resources can be seen in the [list](https://kubevela.io/docs/end-user/components/cloud-services/cloud-resources-list/). You can also filter them by command ``vela components --label type=terraform``
 
-You can check the specification of a cloud resource using the ``vela show <component type name> command.``
+You can check the specification of a cloud resource using the ``vela show <component type name>`` command.
 
 For example the command ``vela show aws-s3`` will return:
 
 ````
 +----------------------------+--------------------------------------------------------------------+-----------------------------------------------------------+----------+---------+
-|            NAME            |                            DESCRIPTION                             |
-                  TYPE                            | REQUIRED | DEFAULT |
+|            NAME            |                            DESCRIPTION                             |                           TYPE                            | REQUIRED | DEFAULT |
 +----------------------------+--------------------------------------------------------------------+-----------------------------------------------------------+----------+---------+
 | acl                        | S3 bucket ACL.                                                     | string                                                    | false    |         |
 | bucket                     | S3 bucket name.                                                    | string                                                    | true     |         |
@@ -109,11 +108,11 @@ spec:
     - name: activaprefapp-sample-s3
       type: aws-s3
       properties:
-        bucket: activaprefapp-bucket-test-48754
+        bucket: activaprefapp-bucket-test-48754   #required
         writeConnectionSecretToRef:
-          name: s3-conn
+          name: s3-conn   #required
         providerRef:
-          name: aws2
+          name: aws2   #if not specified the default value is 'aws'
 ```
 
 The above component will create an s3-bucket with connection information stored in a secreted.
@@ -133,7 +132,7 @@ After the phase becomes and , you can then check the OSS bucket in Alibaba Cloud
 
 ## List OAM applications defined
 
-These are the OAM applications defined in this repository for the demonstration of KubeVela's Terraform addon to AWS
+These are the OAM applications defined in this repository for the demonstration of KubeVela's Terraform addon to AWS:
 
 - OAM application for S3 provisioning
 - OAM application for RDS provisioning
@@ -141,3 +140,7 @@ These are the OAM applications defined in this repository for the demonstration 
 Some of these applications have been completed with more documentation.
 
 - [AWS-RDS module docs](./docs-module/aws-rds.md)
+
+It has been necessary to generate a new ComponentDefinition to add a new module for provisioning with the Terraform addon for KubeVela.
+
+- [Custom module configuration](./docs-module/custom-modules.md)
