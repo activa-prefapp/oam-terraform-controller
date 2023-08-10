@@ -57,6 +57,14 @@ kubectl -n vela-system logs deployments/terraform-controller
 
 You can configure and authenticate multiple providers. Note that you must later reference the ``name`` of the provider specified in the authentication command above in your provisioning OAM definition. Subsequent OAM definitions in which you do not configure the providerRef will have a default providerRef.name=aws. 
 
+```
+$ vela provider ls
+TYPE            PROVIDER        NAME    REGION          CREATED-TIME
+terraform-aws   aws             aws     eu-west-1       2023-08-07 16:29:36 +0200 CEST
+terraform-aws   aws             aws2    eu-west-1       2023-08-08 10:47:10 +0200 CEST
+terraform-aws   aws             aws3    eu-north-1      2023-08-10 13:20:03 +0200 CEST
+```
+
 ## Provision Cloud Resources
 
 All supported Terraform cloud resources can be seen in the [list](https://kubevela.io/docs/end-user/components/cloud-services/cloud-resources-list/). You can also filter them by command ``vela components --label type=terraform``
