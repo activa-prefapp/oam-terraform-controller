@@ -136,7 +136,12 @@ APP                             COMPONENT                      TYPE    TRAITS  P
 provision-s3-resource-sample    activaprefapp-sample-s3        aws-s3          running healthCloud resources are deployed and ready to use  2023-08-08 11:26:56 +0200 CEST
 ```
 
-After the phase becomes and , you can then check the OSS bucket in Alibaba Cloud console ``running`` ``healthy``
+After the phase becomes ``running`` and ``healthy``, you can then check the S3 bucket in AWS console.
+
+## Docker terraform upgrade
+
+The default version of Terraform may not be in the version required for some of your cloud provisioning.
+To support the newly developed modules you should follow the steps defined in the [terraform-upgrade](./docs-module/terraform-upgrade.md) section.
 
 ## List OAM applications defined
 
