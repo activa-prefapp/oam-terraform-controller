@@ -66,6 +66,10 @@ provision-rds3-resource-sample  activaprefapp-sample-db aws-rds             runn
 
 If you want to visualize the logs look for the pod displayed by your OAM application and apply the command "kubectl logs".
 
+```
+kubectl -n default logs pod/<name-pod> -c terraform-init
+kubectl -n default logs pod/<name-pod> -c terraform-executor
+```
 
 ```
 Terraform used the selected providers to generate the following execution
