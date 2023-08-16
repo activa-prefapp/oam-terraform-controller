@@ -2,7 +2,9 @@
 
 You can add your custom modules by configuring a new CRD for each module.
 
-In this demo a new ComponentDefinition is generated to add the ability to provision a custom module. The module to be configured is located in a public git repository: https://github.com/prefapp/tfm/tree/main/modules/aws-sso
+In this demo a new ComponentDefinition is generated to add the ability to provision a custom module. The module to be configured is located in a public git repository: https://github.com/prefapp/tfm/tree/main/modules/aws-sso.
+
+Set the ``configuration`` value to the url of the git repository and the ``path`` value to the path where the module files are located. If the module files are located in the root path of the repository it is not necessary to set the ``path`` variable.
 
 The new component definition would look like this:
 
