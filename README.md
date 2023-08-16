@@ -149,6 +149,7 @@ These are the OAM applications defined in this repository for the demonstration 
 
 - OAM application for S3 provisioning
 - OAM application for RDS provisioning
+- OAM application for pvc provisioning
 
 Some of these applications have been completed with more documentation.
 
