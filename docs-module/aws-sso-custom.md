@@ -140,7 +140,7 @@ metadata:
   namespace: default
 spec:
   components:
-    - name: activaprefapp-sample-s3
+    - name: activaprefapp-sample-sso
       type: aws-sso-prefapp
       properties:
         data_file        = "s3://${var.s3_bucket_name}/${var.s3_object_key}"
