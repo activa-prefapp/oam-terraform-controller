@@ -44,6 +44,12 @@ Once the chart deployment is finished you have your new updated controller confi
 
 ## Standalone Terraform Controller with OAM
 
+### Additional infrastructure requirements
+
+- FluxCD
+
+### Controller deployment
+
 For this demostration we have defined an OAM application to deploy the helm chart with the new changes in [/terraform-controller](../terraform-controller/).
 
 ```
