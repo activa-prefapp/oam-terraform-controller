@@ -151,7 +151,7 @@ These are the OAM applications defined in this repository for the demonstration 
 - OAM application for RDS provisioning
 - OAM application for pvc provisioning
 
-Some of these applications have been completed with more documentation.
+Some of these applications have been supplemented with more documentation to extend the demonstration level.
 
 - [AWS-RDS module docs](./docs-module/aws-rds.md)
 
