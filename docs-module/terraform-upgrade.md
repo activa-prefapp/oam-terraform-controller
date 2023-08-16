@@ -13,7 +13,7 @@ __ATTENTION__: before making changes check that you do not have any provisioning
 
 For this we will first need to generate a docker-terraform image with the version we need.
 
-To simplify the process a fork has been made in this organization of that repository. It has been modified and generated a new image updated to Terraform 1.5.5 version.
+To simplify the process we have made a fork in this organization of the original repository used by the addon. It has been modified and generated a new image updated to Terraform 1.5.5 version.
 
 - The original repository of the image used by the addon: https://github.com/oam-dev/docker-terraform
 
