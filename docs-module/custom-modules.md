@@ -17,7 +17,7 @@ metadata:
   creationTimestamp: null
   labels:
     type: terraform
-  name: aws-sso
+  name: aws-sso-prefapp
   namespace: vela-system
 spec:
   schematic:
