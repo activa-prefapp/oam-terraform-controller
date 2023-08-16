@@ -158,3 +158,7 @@ Some of these applications have been supplemented with more documentation to ext
 It has been necessary to generate a new ComponentDefinition to add a new module for provisioning with the Terraform addon for KubeVela.
 
 - [Custom module configuration](./docs-module/custom-modules.md)
+
+The indicated [aws-sso custom module](https://github.com/prefapp/tfm/tree/main/modules/aws-sso) cannot be integrated. Added recommendations for the developed aws-sso provisioning module.
+
+ - [AWS-SSO custom module recommendations](./docs-module/aws-sso-custom.md)
