@@ -143,6 +143,12 @@ After the phase becomes ``running`` and ``healthy``, you can then check the S3 b
 The default version of Terraform may not be in the version required for some of your cloud provisioning.
 To support the newly developed modules you should follow the steps defined in the [terraform-upgrade](./docs-module/terraform-upgrade.md) section.
 
+## Automatic provisioning with OAM GitOps
+
+You can automatically provision the configured modules, and maintain consolidation between the files in your repository and your cloud infrastructure, by defining a GitOps application for KubeVela that points to the path of the defined OAM provisioning applications.
+
+You can see an example of this [here](./docs-module/terraform-gitops.md).
+
 ## List OAM applications defined
 
 These are the OAM applications defined in this repository for the demonstration of KubeVela's Terraform addon to AWS:
