@@ -138,9 +138,9 @@ provision-s3-resource-sample    activaprefapp-sample-s3        aws-s3          r
 
 After the phase becomes ``running`` and ``healthy``, you can then check the S3 bucket in AWS console.
 
-## Docker terraform upgrade
+## Terraform version upgrade
 
-The default version of Terraform may not be in the version required for some of your cloud provisioning.
+The default version of Terraform, set by the addon, may not be in the version required for some of your cloud provisioning.
 To support the newly developed modules you should follow the steps defined in the [terraform-upgrade](./docs-module/terraform-upgrade.md) section.
 
 ## Automatic provisioning with OAM GitOps
