@@ -1,0 +1,22 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: automatic-provisioning
+  namespace: gitops
+spec:
+  components:
+  - name: aws-automatic-provisioning
+    type: kustomize
+    properties:
+      repoType: git
+      # replace it with your repo url
+      url: https://github.com/activa-prefapp/oam-terraform-controller
+      # replace it with your git secret if it's a private repo
+      secretRef: git-auth-secret
+      # the pull interval time, set to 10m since the infrastructure is steady
+      pullInterval: 1m
+      git:
+        # the branch name
+        branch: terraform-controller-tes
+      # the path to sync
+      path: ./oam-applications
