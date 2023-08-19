@@ -1,0 +1,23 @@
+apiVersion: core.oam.dev/v1beta1
+kind: ComponentDefinition
+metadata:
+  annotations:
+    definition.oam.dev/description: This module can be used to deploy a pragmatic VPC with various subnets types in AZs
+  creationTimestamp: null
+  labels:
+    type: terraform
+  name: aws-vpc-aws-orig
+  namespace: vela-system
+spec:
+  schematic:
+    terraform:
+      configuration: https://github.com/aws-ia/terraform-aws-vpc.git
+      providerRef:
+        name: aws
+        namespace: default
+      type: remote
+  workload:
+    definition:
+      apiVersion: terraform.core.oam.dev/v1beta1
+      kind: Configuration
+status: {}

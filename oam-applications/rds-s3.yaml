@@ -1,0 +1,28 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: provision-rds3-resource-sample
+  namespace: default
+spec:
+  components:
+    - name: activaprefapp-sample-db
+      type: aws-rds
+      properties:
+        identifier: activaprefapp-db-test
+        engine: mysql   #required
+        family: mysql8.0    #required
+        engine_version: '8.0.33'
+        major_engine_version: '8.0'   #required
+        instance_class: db.m5d.large    #required
+        allocated_storage: 5    #required
+        db_name: activaprefappdb
+        username: activa
+        port: 3306
+        iam_database_authentication_enabled: true
+        tags: 
+          Owner: user
+          Environment: dev
+        writeConnectionSecretToRef:
+          name: db-conn   #required
+        providerRef:
+          name: aws   #if not specified the default value is 'aws'

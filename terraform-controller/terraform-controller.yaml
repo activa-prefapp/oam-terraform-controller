@@ -1,0 +1,14 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: terraform-controller
+  namespace: vela-system
+spec:
+  components:
+    - name: terraform-controller
+      type: helm
+      properties:
+        repoType: "helm"
+        url: "https://charts.kubevela.net/addons/"
+        valuesFiles:
+          - "values.yaml"
