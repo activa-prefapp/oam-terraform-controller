@@ -1,7 +1,7 @@
 import "strings"
 
 metadata: {
-	name:        "terraform-aws"
+	name:        "terraform-aws-custom"
 	alias:       "Terraform Provider for AWS"
 	description: "Terraform Provider for AWS"
 	sensitive:   false

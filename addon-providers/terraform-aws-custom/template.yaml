@@ -1,5 +1,5 @@
 apiVersion: core.oam.dev/v1beta1
 kind: Application
 metadata:
-  name: terraform-aws
+  name: terraform-aws-custom
   namespace: vela-system
