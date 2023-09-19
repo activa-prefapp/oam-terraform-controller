@@ -1,8 +1,8 @@
-name: terraform-aws
-version: 1.0.3
-description: Kubernetes Terraform Controller for AWS
+name: terraform-aws-custom
+version: 1.0.3-custom
+description: AWS Custom Provider set to version 5.17.0 for Kubernetes Terraform Controller  
 icon: https://static.kubevela.net/images/logos/aws.png
-url: https://registry.terraform.io/providers/hashicorp/aws/latest
+url: https://registry.terraform.io/providers/hashicorp/aws/5.17.0
 
 tags:
   - Terraform Provider
