@@ -149,6 +149,11 @@ You can automatically provision the configured modules, and maintain consolidati
 
 You can see an example of this [here](./docs-module/terraform-gitops.md).
 
+## Organized provisioning with dependsOn
+
+You can set the provisioning order of your services by setting the dependsOn value in your terraform OAM applications. You can see an example in the [dependsOn section](./docs-module/dependson-module.md) of the documentation.
+
+
 ## List OAM applications defined
 
 These are the OAM applications defined in this repository for the demonstration of KubeVela's Terraform addon to AWS:

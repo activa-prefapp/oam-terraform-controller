@@ -1,0 +1,49 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: example-dependson-terraform
+  namespace: default
+spec:
+  components:
+    - name: activaprefapp-sample1-s3
+      type: aws-s3
+      properties:
+        bucket: activaprefapp-bucket-test-1000
+        writeConnectionSecretToRef:
+          name: s3-conn1
+        providerRef:
+          name: aws
+    - name: activaprefapp-sample2-s3
+      type: aws-s3
+      dependsOn:
+      - activaprefapp-sample1-s3
+      properties:
+        bucket: activaprefapp-bucket-test-2000
+        writeConnectionSecretToRef:
+          name: s3-conn2
+        providerRef:
+          name: aws
+    - name: activaprefapp-sample-db
+      type: aws-rds
+      dependsOn:
+      - activaprefapp-sample1-s3
+      - activaprefapp-sample2-s3
+      properties:
+        identifier: activaprefapp-db-test
+        engine: mysql
+        family: mysql8.0 
+        engine_version: '8.0.33'
+        major_engine_version: '8.0'
+        instance_class: db.m5d.large
+        allocated_storage: 5
+        db_name: activaprefappdb
+        username: activa
+        port: 3306
+        iam_database_authentication_enabled: true
+        tags: 
+          Owner: user
+          Environment: dev
+        writeConnectionSecretToRef:
+          name: db-conn1
+        providerRef:
+          name: aws

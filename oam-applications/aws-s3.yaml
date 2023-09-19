@@ -11,5 +11,6 @@ spec:
         bucket: activaprefapp-bucket-test-48754   #required
         writeConnectionSecretToRef:
           name: s3-conn   #required
+          # acl: private
         providerRef:
           name: aws   #if not specified the default value is 'aws'
