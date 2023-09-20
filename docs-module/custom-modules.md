@@ -250,33 +250,8 @@ commands will detect it and remind you to do so if necessary.
 ```
 
 ```
-$ kubectl -n default logs pod/activaprefapp-sample-s3-of-apply-jr7vj -c terraform-init
+$ kubectl -n default logs pod/activaprefapp-sample-s3-of-apply-jr7vj -c terraform-executor
 
-Initializing the backend...
-
-Successfully configured the backend "kubernetes"! Terraform will automatically
-use this backend unless the backend configuration changes.
-
-Initializing provider plugins...
-- Finding hashicorp/aws versions matching ">= 4.9.0"...
-- Installing hashicorp/aws v5.17.0...
-- Installed hashicorp/aws v5.17.0 (signed by HashiCorp)
-
-Terraform has created a lock file .terraform.lock.hcl to record the provider
-selections it made above. Include this file in your version control repository
-so that Terraform can guarantee to make the same selections by default when
-you run "terraform init" in the future.
-
-Terraform has been successfully initialized!
-
-You may now begin working with Terraform. Try running "terraform plan" to see
-any changes that are required for your infrastructure. All Terraform commands
-should now work.
-
-If you ever set or change modules or backend configuration for Terraform,
-rerun this command to reinitialize your working directory. If you forget, other
-commands will detect it and remind you to do so if necessary.
-david@david-pcdev01:~$ kubectl -n default logs pod/activaprefapp-sample-s3-of-apply-jr7vj -c terraform-executor
 data.aws_partition.current: Reading...
 data.aws_region.current: Reading...
 data.aws_partition.current: Read complete after 0s [id=aws]
