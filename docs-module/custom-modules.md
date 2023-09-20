@@ -45,7 +45,7 @@ To load the definition into your cluster use the following command:
 kubectl apply -f terraform-aws-s3.yml
 ```
 
-We check that the new definition has been generated correctly and that KubeVela is able to recognize the necessary variables from the variables.tf file in the git repository.
+We check that the new definition has been generated correctly and that KubeVela is able to recognize the necessary variables from the [variables.tf](https://github.com/terraform-aws-modules/terraform-aws-s3-bucket/blob/master/variables.tf) file in the git repository.
 
 
 ```
