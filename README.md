@@ -143,6 +143,12 @@ After the phase becomes ``running`` and ``healthy``, you can then check the S3 b
 The default version of Terraform, set by the addon, may not be in the version required for some of your cloud provisioning.
 To support the newly developed modules you should follow the steps defined in the [terraform-upgrade](./docs-module/terraform-upgrade.md) section.
 
+## Custom module integration
+
+For the integration of a new custom module for AWS cloud provisioning you will need to generate its respective ComponentDefinition.
+
+In the [modules-definition](./modules-definition/) path you can see some examples of ComponentDefinition for integrating custom modules in public GitHub repositories.
+
 ## Automatic provisioning with OAM GitOps
 
 You can automatically provision the configured modules, and maintain consolidation between the files in your repository and your cloud infrastructure, by defining a GitOps application for KubeVela that points to the path of the defined OAM provisioning applications.
@@ -168,7 +174,7 @@ Some of these applications have been supplemented with more documentation to ext
 
 It has been necessary to generate a new ComponentDefinition to add a new module for provisioning with the Terraform addon for KubeVela.
 
-- [Custom module configuration](./docs-module/custom-modules.md)
+- [Custom module configuration for AWS-SSO](./docs-module/custom-modules.md)
 
 The indicated [aws-sso custom module](https://github.com/prefapp/tfm/tree/main/modules/aws-sso) cannot be integrated. Added recommendations for the developed aws-sso provisioning module.
 
