@@ -220,11 +220,7 @@ activaprefapp-sample-s3-of-apply-jr7vj   0/1     Completed   0          4m22s
 ```
 
 ```
-$ kubectl -n default get pod
-NAME                                     READY   STATUS      RESTARTS   AGE
-activaprefapp-sample-s3-apply-4b2kn      0/1     Completed   0          55m
-activaprefapp-sample-s3-of-apply-jr7vj   0/1     Completed   0          4m22s
-david@david-pcdev01:~$ kubectl -n default logs pod/activaprefapp-sample-s3-of-apply-jr7vj -c terraform-init
+$ kubectl -n default logs pod/activaprefapp-sample-s3-of-apply-jr7vj -c terraform-init
 
 Initializing the backend...
 
