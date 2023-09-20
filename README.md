@@ -149,6 +149,8 @@ For the integration of a new custom module for AWS cloud provisioning you will n
 
 In the [modules-definition](./modules-definition/) path you can see some examples of ComponentDefinition for integrating custom modules in public GitHub repositories.
 
+You can follow step by step the configuration of a custom module in the [custom-modules](./docs-module/custom-modules.md) section.
+
 ## Automatic provisioning with OAM GitOps
 
 You can automatically provision the configured modules, and maintain consolidation between the files in your repository and your cloud infrastructure, by defining a GitOps application for KubeVela that points to the path of the defined OAM provisioning applications.
