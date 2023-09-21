@@ -138,10 +138,107 @@ provision-s3-resource-sample    activaprefapp-sample-s3        aws-s3          r
 
 After the phase becomes ``running`` and ``healthy``, you can then check the S3 bucket in AWS console.
 
+```
+$ aws s3 ls
+2023-09-20 11:37:50 activaprefapp-bucket-test-48754
+```
+
+You can check the terraform logs by checking the terraform-init and terraform-executor containers.
+
+First check the pod that has been generated to provision the bucket s3:
+
+```
+$ kubectl -n default get pod
+NAME                                  READY   STATUS      RESTARTS   AGE
+activaprefapp-sample-s3-apply-4b2kn   0/1     Completed   0          7m58s
+```
+
+Now consult the container records.
+
+```
+$ kubectl -n default logs pod/activaprefapp-sample-s3-apply-4b2kn  -c terraform-init
+
+Initializing the backend...
+
+Successfully configured the backend "kubernetes"! Terraform will automatically
+use this backend unless the backend configuration changes.
+
+Initializing provider plugins...
+- Finding hashicorp/aws versions matching "3.74.3"...
+- Installing hashicorp/aws v3.74.3...
+- Installed hashicorp/aws v3.74.3 (signed by HashiCorp)
+
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+```
+
+```
+$ kubectl -n default logs pod/activaprefapp-sample-s3-apply-4b2kn  -c terraform-executor
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.bucket-acl will be created
+  + resource "aws_s3_bucket" "bucket-acl" {
+      + acceleration_status         = (known after apply)
+      + acl                         = "private"
+      + arn                         = (known after apply)
+      + bucket                      = "activaprefapp-bucket-test-48754"
+      + bucket_domain_name          = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags_all                    = (known after apply)
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + BUCKET_NAME = (known after apply)
+aws_s3_bucket.bucket-acl: Creating...
+aws_s3_bucket.bucket-acl: Creation complete after 1s [id=activaprefapp-bucket-test-48754]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+BUCKET_NAME = "activaprefapp-bucket-test-48754.s3.amazonaws.com"
+
+```
+
+
 ## Terraform version upgrade
 
 The default version of Terraform, set by the addon, may not be in the version required for some of your cloud provisioning.
 To support the newly developed modules you should follow the steps defined in the [terraform-upgrade](./docs-module/terraform-upgrade.md) section.
+
+## Custom module integration
+
+For the integration of a new custom module for AWS cloud provisioning you will need to generate its respective ComponentDefinition.
+
+In the [modules-definition](./modules-definition/) path you can see some examples of ComponentDefinition for integrating custom modules in public GitHub repositories.
+
+You can follow step by step the configuration of a custom module in the [custom-modules](./docs-module/custom-modules.md) section.
 
 ## Automatic provisioning with OAM GitOps
 
@@ -168,8 +265,8 @@ Some of these applications have been supplemented with more documentation to ext
 
 It has been necessary to generate a new ComponentDefinition to add a new module for provisioning with the Terraform addon for KubeVela.
 
-- [Custom module configuration](./docs-module/custom-modules.md)
+- [Custom module configuration for AWS-SSO](./docs-module/aws-sso-module.md)
 
 The indicated [aws-sso custom module](https://github.com/prefapp/tfm/tree/main/modules/aws-sso) cannot be integrated. Added recommendations for the developed aws-sso provisioning module.
 
- - [AWS-SSO custom module recommendations](./docs-module/aws-sso-custom.md)
+ - [AWS-SSO custom module recommendations](./docs-module/aws-sso-recommendations.md)

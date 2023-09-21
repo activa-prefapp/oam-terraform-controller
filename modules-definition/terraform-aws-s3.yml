@@ -1,0 +1,24 @@
+apiVersion: core.oam.dev/v1beta1
+kind: ComponentDefinition
+metadata:
+  annotations:
+    definition.oam.dev/description: OFFICIAL Terraform module which creates S3 bucket resources on AWS
+  creationTimestamp: null
+  labels:
+    type: terraform
+  name: s3-bucket
+  namespace: vela-system
+spec:
+  schematic:
+    terraform:
+      configuration: https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git
+      # path:
+      providerRef:
+        name: aws
+        namespace: default
+      type: remote
+  workload:
+    definition:
+      apiVersion: terraform.core.oam.dev/v1beta1
+      kind: Configuration
+status: {}
