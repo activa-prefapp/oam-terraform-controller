@@ -9,6 +9,7 @@ spec:
       type: helm
       properties:
         repoType: "helm"
-        url: "https://charts.kubevela.net/addons/"
-        valuesFiles:
-          - "values.yaml"
+        url: "https://kubevela.github.io/charts/"
+        chart: "terraform-controller"
+        values:
+          terraformImage: "ghcr.io/activa-prefapp/docker-terraform:1.5.5"
