@@ -31,13 +31,13 @@ Before performing the deployment you must make the necessary modifications in th
 Add helm repository:
 
 ```
-helm repo add kubevela-addons https://charts.kubevela.net/addons
+helm repo add kubevela https://kubevela.github.io/charts/
 ```
 
 To deploy use the command:
 
 ```
-helm upgrade --install terraform-controller -f values.yaml kubevela-addons/terraform-controller
+helm upgrade --install terraform-controller -f values.yaml kubevela/terraform-controller
 ```
 
 Once the chart deployment is finished you have your new updated controller configured.
@@ -64,9 +64,10 @@ spec:
       type: helm
       properties:
         repoType: "helm"
-        url: "https://charts.kubevela.net/addons/"
-        valuesFiles:
-          - "values.yaml"
+        url: "https://kubevela.github.io/charts/"
+        chart: "terraform-controller"
+        values:
+          terraformImage: "ghcr.io/activa-prefapp/docker-terraform:1.5.5"
 ```
 
 To deploy the controller use the command:
